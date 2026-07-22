@@ -1,0 +1,272 @@
+/* =========================================================
+   ANA SOFÍA MARULANDA — Portfolio
+   Design concept: "Data Sampler" — an embroidery sampler
+   reimagined as a scientist's notebook. The cross-stitch "×"
+   doubles as a scatter-plot mark, the thread-dash doubles as
+   a plotted line: the one motif carries both worlds.
+   ========================================================= */
+
+:root {
+  /* --- color: named threads on linen --- */
+  --linen:        #faf5ef;   /* background, the "cloth" */
+  --linen-deep:   #f2e9df;   /* card / section fill */
+  --thread-rose:  #c98f8a;   /* primary accent — dusty rose */
+  --thread-sage:  #8fa07e;   /* secondary accent — moss green */
+  --thread-plum:  #4a3742;   /* headings, deep ink */
+  --thread-lav:   #a99bc7;   /* tertiary accent — used on education page */
+  --ink:          #5c4f52;   /* body text */
+  --ink-soft:     #8a7d80;   /* muted / caption text */
+  --hairline:     #ddccc2;   /* borders */
+
+  /* --- type --- */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --font-stitch:  'Space Mono', 'Courier New', monospace;
+
+  --radius: 2px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+a { color: var(--thread-plum); text-decoration-color: var(--thread-rose); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--thread-rose); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--thread-plum);
+  font-weight: 600;
+  margin: 0 0 0.4em;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.05; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1em; max-width: 62ch; }
+
+.eyebrow {
+  font-family: var(--font-stitch);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--thread-sage);
+  margin: 0 0 0.9em;
+}
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 32px; }
+
+section { padding: 78px 0; }
+section + section { border-top: 1px dashed var(--hairline); }
+
+/* ---------- stitched cross-stitch divider (the signature motif) ---------- */
+.stitches {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  user-select: none;
+  aria-hidden: true;
+  margin: 28px 0;
+}
+.stitches span {
+  font-family: var(--font-stitch);
+  font-size: 1.1rem;
+  color: var(--thread-rose);
+}
+.stitches span:nth-child(3n+2) { color: var(--thread-sage); }
+.stitches span:nth-child(4n+1) { color: var(--thread-lav); opacity: .85; }
+
+/* ---------- nav ---------- */
+header.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 245, 239, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px dashed var(--hairline);
+}
+.nav-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.monogram {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--thread-plum);
+  border: 1px solid var(--thread-plum);
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  flex: none;
+}
+.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  font-family: var(--font-stitch);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding-bottom: 4px;
+  border-bottom: 2px dashed transparent;
+}
+.nav-links a:hover { color: var(--thread-plum); }
+.nav-links a.active { color: var(--thread-plum); border-bottom-color: var(--thread-rose); }
+
+/* ---------- hero ---------- */
+.hero { padding: 88px 0 60px; text-align: center; }
+.hero p.lede { margin: 0 auto 1.4em; font-size: 1.08rem; color: var(--ink); }
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-stitch);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--thread-plum);
+  color: var(--thread-plum);
+  transition: background .18s ease, color .18s ease;
+}
+.btn:hover { background: var(--thread-plum); color: var(--linen); }
+.btn.primary { background: var(--thread-rose); border-color: var(--thread-rose); color: #fff; }
+.btn.primary:hover { background: var(--thread-plum); border-color: var(--thread-plum); }
+
+/* ---------- sampler card: dashed frame with cross-stitch corners ---------- */
+.sampler {
+  position: relative;
+  background: var(--linen-deep);
+  border: 1px dashed var(--hairline);
+  padding: 30px 32px;
+  border-radius: var(--radius);
+}
+.sampler::before, .sampler::after {
+  content: "×";
+  position: absolute;
+  font-family: var(--font-stitch);
+  color: var(--thread-rose);
+  font-size: 1rem;
+  top: 8px;
+}
+.sampler::before { left: 10px; }
+.sampler::after { right: 10px; }
+
+.card-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.tag-line { font-family: var(--font-stitch); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--thread-sage); text-transform: uppercase; margin-bottom: 6px; }
+.card-meta { font-family: var(--font-stitch); font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 10px; }
+
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+}
+ul.plain li::before {
+  content: "×";
+  position: absolute;
+  left: 0;
+  color: var(--thread-rose);
+  font-family: var(--font-stitch);
+}
+
+/* ---------- skill tags ---------- */
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag {
+  font-family: var(--font-stitch);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  padding: 7px 14px;
+  border: 1px dashed var(--thread-sage);
+  border-radius: 999px;
+  color: var(--thread-plum);
+  background: var(--linen);
+}
+
+/* ---------- experience timeline ---------- */
+.timeline { display: flex; flex-direction: column; gap: 26px; }
+.tl-item { display: grid; grid-template-columns: 130px 1fr; gap: 22px; }
+.tl-item .years { font-family: var(--font-stitch); font-size: 0.8rem; color: var(--thread-sage); padding-top: 4px; }
+.tl-item h3 { margin-bottom: 2px; }
+.tl-item .org { font-style: italic; color: var(--ink-soft); margin-bottom: 10px; display: block; font-family: var(--font-body); }
+
+/* ---------- table (technical skills) ---------- */
+.skill-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.skill-table th, .skill-table td { text-align: left; padding: 12px 14px; border-bottom: 1px dashed var(--hairline); vertical-align: top; }
+.skill-table th {
+  font-family: var(--font-stitch);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--thread-sage);
+  width: 180px;
+}
+
+/* ---------- contact ---------- */
+.contact-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 18px; }
+.contact-links a {
+  font-family: var(--font-stitch);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--thread-rose);
+  padding-bottom: 2px;
+}
+
+/* ---------- publication callout ---------- */
+.pub {
+  border-left: 3px solid var(--thread-lav);
+  padding: 6px 0 6px 20px;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ---------- footer ---------- */
+footer {
+  text-align: center;
+  padding: 40px 0 60px;
+  font-family: var(--font-stitch);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+/* ---------- responsive ---------- */
+@media (min-width: 720px) {
+  .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  section { padding: 54px 0; }
+  .tl-item { grid-template-columns: 1fr; gap: 6px; }
+  .nav-links { gap: 16px; }
+}
